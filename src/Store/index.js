@@ -5,19 +5,19 @@ const counterReducer = (state =initialState, action) => {
   if (action.type === "increment") {
     return {
       counter: state.counter + 1,
-      showCounter:state.shoCounter
+      shoCounter:state.shoCounter
     };
   }
   if(action.type==='increase'){
     return {
       counter: state.counter + action.amount,
-      showCounter:state.shoCounter
+      shoCounter:state.shoCounter
     };
   }
   if (action.type === "decrement") {
     return {
       counter: state.counter - 1,
-      showCounter:state.shoCounter
+      shoCounter:state.shoCounter
     };
   }
   if (action.type ==='toggle'){
