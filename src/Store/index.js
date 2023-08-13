@@ -1,28 +1,11 @@
 import { createStore , configureStore } from '@reduxjs/toolkit';
 //congfigureStore is like createStore creates store but it makes merging multiple reducers
 // into one reducer
-import { createSlice } from "@reduxjs/toolkit";
-const initialState ={counter:0 , shoCounter:true};
+import counterReducer from './counter';
+import authReducer from './auth';
 
 
-const counterSlice = createSlice({
-  name:'counter',
-  initialState,
-  reducers:{
-    increment(state){
-      state.counter++;
-    },
-    decrement(state){
-      state.counter--;
-    },
-    increase(state , action){
-      state.counter = state.counter +action.payload;
-    },
-    toggleCounter(state){
-      state.shoCounter =!state.shoCounter;
-    },
-  }
-});
+
 // if you are sending a argument data with the parameter you have to use the action becoz there action is the data to be add.
 // (imgur) pakage is used internally change the mutable code into immutable code
 // name: is upto you 
@@ -30,10 +13,11 @@ const counterSlice = createSlice({
 
 
 const store = configureStore({
-  reducer: counterSlice.reducer
+  reducer: {counter : counterReducer , auth:authReducer},
 });
 
-export const counterActions = counterSlice.actions;
+
+
 
 
 export default store;
